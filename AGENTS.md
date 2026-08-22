@@ -66,6 +66,7 @@ finance-app/
 ├── .claude/
 │   ├── CLAUDE.md             # Claude Code entry point; re-exports AGENTS.md
 │   ├── settings.json         # Claude Code project settings
+│   ├── rules/                # Project rules (code-standards, react, tests)
 │   └── skills/               # Project skills (shadcn)
 ├── .cursor/hooks.json        # Cursor editor hooks
 ├── .vscode/settings.json     # Editor settings (Biome as formatter)
@@ -94,6 +95,10 @@ Git hooks: `lefthook` runs `pnpm dlx ultracite fix` on staged JS/TS/JSON/CSS fil
 
 Full code standards, with examples, live in [.claude/rules/code-standards.md](.claude/rules/code-standards.md). Those rules take precedence over Ultracite/Biome defaults when they conflict.
 
+## React
+
+Full React rules, with examples, live in [.claude/rules/react.md](.claude/rules/react.md). They cover small reusable components, no prop spreading, avoiding unnecessary `useEffect`, `useMemo` for heavy work, splitting data access out of components, `use`-prefixed hooks, accessibility attributes, and Tailwind CSS styling. Those rules take precedence over any conflicting guidance elsewhere.
+
 This project also uses **Ultracite**, a zero-config preset that enforces code quality via Biome.
 
 ## Quick Reference
@@ -116,3 +121,5 @@ Biome's linter will catch most issues automatically. Focus your attention on:
 ---
 
 Most formatting and common issues are automatically fixed by Biome. Run `pnpm dlx ultracite fix` before committing to ensure compliance.
+
+<critical>ALWAYS FOLLOW THE TEST RULES in ./claude/rules/tests.md and implement the tests for the added code</critical>

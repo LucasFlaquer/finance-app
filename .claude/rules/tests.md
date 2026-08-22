@@ -4,7 +4,7 @@ These rules take precedence over any conflicting guidance elsewhere. They apply 
 
 ## Critical rule: all code must be covered by automated tests
 
-This rule is critical and must never be ignored.
+<critical>This rule is critical and must never be ignored.</critical>
 
 - **Minimum coverage: 80%.**
 - Coverage is a floor, not a target. 80% with weak assertions is worse than 80% with real ones — see [Self-validated](#self-validated).
