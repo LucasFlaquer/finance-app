@@ -39,7 +39,9 @@ Override the app port with `pnpm dev -- -p <port>`.
 
 ### Tests
 
-No test runner is configured yet. There is no `pnpm test` script and no test files in the repo. When adding tests, wire a `test` script into `package.json` and document it here; follow the testing rules in the Testing section below.
+No test runner is configured yet. There is no `pnpm test` script and no test files in the repo. When adding tests, wire a `test` script into `package.json` and document it here.
+
+Full testing rules, with examples, live in [.claude/rules/tests.md](.claude/rules/tests.md). Those rules take precedence over any conflicting guidance elsewhere.
 
 ## Folder Structure
 
