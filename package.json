@@ -6,6 +6,10 @@
   "scripts": {
     "build": "next build",
     "check": "ultracite check",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "prisma db seed",
     "dev": "next dev",
     "fix": "ultracite fix",
     "format": "biome format --write",

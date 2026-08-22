@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.9.1",
   "engineVersion": "e922089b7d7502aff4249d5da3420f6fa55fc6ad",
   "activeProvider": "postgresql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Get a free hosted Postgres database in seconds: `npx create-db`\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Get a free hosted Postgres database in seconds: `npx create-db`\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nenum TransactionType {\n  INCOME\n  OUTCOME\n}\n\nmodel Category {\n  id           String        @id @default(uuid())\n  name         String        @unique\n  createdAt    DateTime      @default(now())\n  updatedAt    DateTime      @updatedAt\n  transactions Transaction[]\n}\n\nmodel Transaction {\n  id         String          @id @default(uuid())\n  title      String\n  amount     Decimal         @db.Decimal(12, 2)\n  type       TransactionType\n  categoryId String\n  category   Category        @relation(fields: [categoryId], references: [id], onDelete: Restrict)\n  createdAt  DateTime        @default(now())\n  updatedAt  DateTime        @updatedAt\n\n  @@index([categoryId])\n  @@index([type])\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -32,10 +32,10 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"transactions\",\"kind\":\"object\",\"type\":\"Transaction\",\"relationName\":\"CategoryToTransaction\"}],\"dbName\":null},\"Transaction\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"type\",\"kind\":\"enum\",\"type\":\"TransactionType\"},{\"name\":\"categoryId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"Category\",\"relationName\":\"CategoryToTransaction\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 config.parameterizationSchema = {
-  strings: JSON.parse("[]"),
-  graph: "AAAA"
+  strings: JSON.parse("[\"where\",\"orderBy\",\"cursor\",\"category\",\"transactions\",\"_count\",\"Category.findUnique\",\"Category.findUniqueOrThrow\",\"Category.findFirst\",\"Category.findFirstOrThrow\",\"Category.findMany\",\"data\",\"Category.createOne\",\"Category.createMany\",\"Category.createManyAndReturn\",\"Category.updateOne\",\"Category.updateMany\",\"Category.updateManyAndReturn\",\"create\",\"update\",\"Category.upsertOne\",\"Category.deleteOne\",\"Category.deleteMany\",\"having\",\"_min\",\"_max\",\"Category.groupBy\",\"Category.aggregate\",\"Transaction.findUnique\",\"Transaction.findUniqueOrThrow\",\"Transaction.findFirst\",\"Transaction.findFirstOrThrow\",\"Transaction.findMany\",\"Transaction.createOne\",\"Transaction.createMany\",\"Transaction.createManyAndReturn\",\"Transaction.updateOne\",\"Transaction.updateMany\",\"Transaction.updateManyAndReturn\",\"Transaction.upsertOne\",\"Transaction.deleteOne\",\"Transaction.deleteMany\",\"_avg\",\"_sum\",\"Transaction.groupBy\",\"Transaction.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"title\",\"amount\",\"TransactionType\",\"type\",\"categoryId\",\"createdAt\",\"updatedAt\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"name\",\"every\",\"some\",\"none\",\"is\",\"isNot\",\"connectOrCreate\",\"upsert\",\"createMany\",\"set\",\"disconnect\",\"delete\",\"connect\",\"updateMany\",\"deleteMany\",\"increment\",\"decrement\",\"multiply\",\"divide\"]"),
+  graph: "bxQgCAQAAEcAIC4AAEQAMC8AAAkAEDAAAEQAMDEBAAAAATdAAEYAIThAAEYAIUQBAAAAAQEAAAABACALAwAASwAgLgAASAAwLwAAAwAQMAAASAAwMQEARQAhMgEARQAhMxAASQAhNQAASjUiNgEARQAhN0AARgAhOEAARgAhAQMAAGkAIAsDAABLACAuAABIADAvAAADABAwAABIADAxAQAAAAEyAQBFACEzEABJACE1AABKNSI2AQBFACE3QABGACE4QABGACEDAAAAAwAgAQAABAAwAgAABQAgAQAAAAMAIAEAAAABACAIBAAARwAgLgAARAAwLwAACQAQMAAARAAwMQEARQAhN0AARgAhOEAARgAhRAEARQAhAQQAAGgAIAMAAAAJACABAAAKADACAAABACADAAAACQAgAQAACgAwAgAAAQAgAwAAAAkAIAEAAAoAMAIAAAEAIAUEAABnACAxAQAAAAE3QAAAAAE4QAAAAAFEAQAAAAEBCwAADgAgBDEBAAAAATdAAAAAAThAAAAAAUQBAAAAAQELAAAQADABCwAAEAAwBQQAAFoAIDEBAFEAITdAAFQAIThAAFQAIUQBAFEAIQIAAAABACALAAATACAEMQEAUQAhN0AAVAAhOEAAVAAhRAEAUQAhAgAAAAkAIAsAABUAIAIAAAAJACALAAAVACADAAAAAQAgEgAADgAgEwAAEwAgAQAAAAEAIAEAAAAJACADBQAAVwAgGAAAWQAgGQAAWAAgBy4AAEMAMC8AABwAEDAAAEMAMDEBADYAITdAADkAIThAADkAIUQBADYAIQMAAAAJACABAAAbADAXAAAcACADAAAACQAgAQAACgAwAgAAAQAgAQAAAAUAIAEAAAAFACADAAAAAwAgAQAABAAwAgAABQAgAwAAAAMAIAEAAAQAMAIAAAUAIAMAAAADACABAAAEADACAAAFACAIAwAAVgAgMQEAAAABMgEAAAABMxAAAAABNQAAADUCNgEAAAABN0AAAAABOEAAAAABAQsAACQAIAcxAQAAAAEyAQAAAAEzEAAAAAE1AAAANQI2AQAAAAE3QAAAAAE4QAAAAAEBCwAAJgAwAQsAACYAMAgDAABVACAxAQBRACEyAQBRACEzEABSACE1AABTNSI2AQBRACE3QABUACE4QABUACECAAAABQAgCwAAKQAgBzEBAFEAITIBAFEAITMQAFIAITUAAFM1IjYBAFEAITdAAFQAIThAAFQAIQIAAAADACALAAArACACAAAAAwAgCwAAKwAgAwAAAAUAIBIAACQAIBMAACkAIAEAAAAFACABAAAAAwAgBQUAAEwAIBgAAE8AIBkAAE4AICoAAE0AICsAAFAAIAouAAA1ADAvAAAyABAwAAA1ADAxAQA2ACEyAQA2ACEzEAA3ACE1AAA4NSI2AQA2ACE3QAA5ACE4QAA5ACEDAAAAAwAgAQAAMQAwFwAAMgAgAwAAAAMAIAEAAAQAMAIAAAUAIAouAAA1ADAvAAAyABAwAAA1ADAxAQA2ACEyAQA2ACEzEAA3ACE1AAA4NSI2AQA2ACE3QAA5ACE4QAA5ACEOBQAAOwAgGAAAQgAgGQAAQgAgOQEAAAABOgEAAAAEOwEAAAAEPAEAAAABPQEAAAABPgEAAAABPwEAAAABQAEAQQAhQQEAAAABQgEAAAABQwEAAAABDQUAADsAIBgAAEAAIBkAAEAAICoAAEAAICsAAEAAIDkQAAAAAToQAAAABDsQAAAABDwQAAAAAT0QAAAAAT4QAAAAAT8QAAAAAUAQAD8AIQcFAAA7ACAYAAA-ACAZAAA-ACA5AAAANQI6AAAANQg7AAAANQhAAAA9NSILBQAAOwAgGAAAPAAgGQAAPAAgOUAAAAABOkAAAAAEO0AAAAAEPEAAAAABPUAAAAABPkAAAAABP0AAAAABQEAAOgAhCwUAADsAIBgAADwAIBkAADwAIDlAAAAAATpAAAAABDtAAAAABDxAAAAAAT1AAAAAAT5AAAAAAT9AAAAAAUBAADoAIQg5AgAAAAE6AgAAAAQ7AgAAAAQ8AgAAAAE9AgAAAAE-AgAAAAE_AgAAAAFAAgA7ACEIOUAAAAABOkAAAAAEO0AAAAAEPEAAAAABPUAAAAABPkAAAAABP0AAAAABQEAAPAAhBwUAADsAIBgAAD4AIBkAAD4AIDkAAAA1AjoAAAA1CDsAAAA1CEAAAD01IgQ5AAAANQI6AAAANQg7AAAANQhAAAA-NSINBQAAOwAgGAAAQAAgGQAAQAAgKgAAQAAgKwAAQAAgORAAAAABOhAAAAAEOxAAAAAEPBAAAAABPRAAAAABPhAAAAABPxAAAAABQBAAPwAhCDkQAAAAAToQAAAABDsQAAAABDwQAAAAAT0QAAAAAT4QAAAAAT8QAAAAAUAQAEAAIQ4FAAA7ACAYAABCACAZAABCACA5AQAAAAE6AQAAAAQ7AQAAAAQ8AQAAAAE9AQAAAAE-AQAAAAE_AQAAAAFAAQBBACFBAQAAAAFCAQAAAAFDAQAAAAELOQEAAAABOgEAAAAEOwEAAAAEPAEAAAABPQEAAAABPgEAAAABPwEAAAABQAEAQgAhQQEAAAABQgEAAAABQwEAAAABBy4AAEMAMC8AABwAEDAAAEMAMDEBADYAITdAADkAIThAADkAIUQBADYAIQgEAABHACAuAABEADAvAAAJABAwAABEADAxAQBFACE3QABGACE4QABGACFEAQBFACELOQEAAAABOgEAAAAEOwEAAAAEPAEAAAABPQEAAAABPgEAAAABPwEAAAABQAEAQgAhQQEAAAABQgEAAAABQwEAAAABCDlAAAAAATpAAAAABDtAAAAABDxAAAAAAT1AAAAAAT5AAAAAAT9AAAAAAUBAADwAIQNFAAADACBGAAADACBHAAADACALAwAASwAgLgAASAAwLwAAAwAQMAAASAAwMQEARQAhMgEARQAhMxAASQAhNQAASjUiNgEARQAhN0AARgAhOEAARgAhCDkQAAAAAToQAAAABDsQAAAABDwQAAAAAT0QAAAAAT4QAAAAAT8QAAAAAUAQAEAAIQQ5AAAANQI6AAAANQg7AAAANQhAAAA-NSIKBAAARwAgLgAARAAwLwAACQAQMAAARAAwMQEARQAhN0AARgAhOEAARgAhRAEARQAhSAAACQAgSQAACQAgAAAAAAABTQEAAAABBU0QAAAAAVMQAAAAAVQQAAAAAVUQAAAAAVYQAAAAAQFNAAAANQIBTUAAAAABBRIAAGsAIBMAAG4AIEoAAGwAIEsAAG0AIFAAAAEAIAMSAABrACBKAABsACBQAAABACAAAAALEgAAWwAwEwAAYAAwSgAAXAAwSwAAXQAwTAAAXgAgTQAAXwAwTgAAXwAwTwAAXwAwUAAAXwAwUQAAYQAwUgAAYgAwBjEBAAAAATIBAAAAATMQAAAAATUAAAA1AjdAAAAAAThAAAAAAQIAAAAFACASAABmACADAAAABQAgEgAAZgAgEwAAZQAgAQsAAGoAMAsDAABLACAuAABIADAvAAADABAwAABIADAxAQAAAAEyAQBFACEzEABJACE1AABKNSI2AQBFACE3QABGACE4QABGACECAAAABQAgCwAAZQAgAgAAAGMAIAsAAGQAIAouAABiADAvAABjABAwAABiADAxAQBFACEyAQBFACEzEABJACE1AABKNSI2AQBFACE3QABGACE4QABGACEKLgAAYgAwLwAAYwAQMAAAYgAwMQEARQAhMgEARQAhMxAASQAhNQAASjUiNgEARQAhN0AARgAhOEAARgAhBjEBAFEAITIBAFEAITMQAFIAITUAAFM1IjdAAFQAIThAAFQAIQYxAQBRACEyAQBRACEzEABSACE1AABTNSI3QABUACE4QABUACEGMQEAAAABMgEAAAABMxAAAAABNQAAADUCN0AAAAABOEAAAAABBBIAAFsAMEoAAFwAMEwAAF4AIFAAAF8AMAABBAAAaAAgBjEBAAAAATIBAAAAATMQAAAAATUAAAA1AjdAAAAAAThAAAAAAQQxAQAAAAE3QAAAAAE4QAAAAAFEAQAAAAECAAAAAQAgEgAAawAgAwAAAAkAIBIAAGsAIBMAAG8AIAYAAAAJACALAABvACAxAQBRACE3QABUACE4QABUACFEAQBRACEEMQEAUQAhN0AAVAAhOEAAVAAhRAEAUQAhAgQGAgUAAwEDAAEBBAcAAAAAAwUACBgACRkACgAAAAMFAAgYAAkZAAoBAwABAQMAAQUFAA8YABIZABMqABArABEAAAAAAAUFAA8YABIZABMqABArABEGAgEHCAEICwEJDAEKDQEMDwENEQQOEgUPFAEQFgQRFwYUGAEVGQEWGgQaHQcbHgscHwIdIAIeIQIfIgIgIwIhJQIiJwQjKAwkKgIlLAQmLQ0nLgIoLwIpMAQsMw4tNBQ"
 }
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
@@ -70,8 +70,8 @@ export interface PrismaClientConstructor {
    * const prisma = new PrismaClient({
    *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
    * })
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more Categories
+   * const categories = await prisma.category.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -94,8 +94,8 @@ export interface PrismaClientConstructor {
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Categories
+ * const categories = await prisma.category.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -188,7 +188,25 @@ export interface PrismaClient<
     extArgs: ExtArgs
   }>>
 
-    
+      /**
+   * `prisma.category`: Exposes CRUD operations for the **Category** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Categories
+    * const categories = await prisma.category.findMany()
+    * ```
+    */
+  get category(): Prisma.CategoryDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.transaction`: Exposes CRUD operations for the **Transaction** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Transactions
+    * const transactions = await prisma.transaction.findMany()
+    * ```
+    */
+  get transaction(): Prisma.TransactionDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {
