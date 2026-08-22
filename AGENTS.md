@@ -39,7 +39,15 @@ Override the app port with `pnpm dev -- -p <port>`.
 
 ### Tests
 
-No test runner is configured yet. There is no `pnpm test` script and no test files in the repo. When adding tests, wire a `test` script into `package.json` and document it here.
+Unit and integration tests run on **Vitest** (jsdom + Testing Library). Tests live next to the code they cover as `*.test.ts` / `*.test.tsx`.
+
+| Command | What it does |
+| --- | --- |
+| `pnpm test` | Run the suite once |
+| `pnpm test:watch` | Run the suite in watch mode |
+| `pnpm test:coverage` | Run with V8 coverage (80% threshold) |
+
+Playwright E2E is specified in the testing rules but not wired up yet.
 
 Full testing rules, with examples, live in [.claude/rules/tests.md](.claude/rules/tests.md). Those rules take precedence over any conflicting guidance elsewhere.
 
