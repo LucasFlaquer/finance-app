@@ -6,7 +6,6 @@
   "scripts": {
     "build": "next build",
     "check": "ultracite check",
-    "contract:emit": "prisma-next contract emit",
     "dev": "next dev",
     "fix": "ultracite fix",
     "format": "biome format --write",
@@ -17,11 +16,13 @@
   "dependencies": {
     "@base-ui/react": "^1.7.0",
     "@phosphor-icons/react": "^2.1.10",
-    "@prisma/orm-postgres": "8.0.0-rc.1",
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.9.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
     "next": "16.2.12",
+    "pg": "^8.23.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "shadcn": "^4.16.2",
@@ -32,11 +33,13 @@
     "@biomejs/biome": "2.5.6",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "lefthook": "^2.1.10",
-    "prisma-next": "8.0.0-rc.1",
+    "prisma": "^7.9.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5",
     "ultracite": "7.10.1"
   }

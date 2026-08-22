@@ -40,3 +40,5 @@ next-env.d.ts
 node_modules/
 dist/
 .env
+
+/app/generated/prisma
