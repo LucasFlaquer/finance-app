@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import type { CategoryOption } from "@/lib/transactions/transaction-types";
 import { NewTransactionDialog } from "./new-transaction-dialog";
 
@@ -14,7 +15,10 @@ export function TransactionsHeader({ categories }: TransactionsHeaderProps) {
           Track your income and outcome in one place.
         </p>
       </div>
-      <NewTransactionDialog categories={categories} />
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <NewTransactionDialog categories={categories} />
+      </div>
     </header>
   );
 }
