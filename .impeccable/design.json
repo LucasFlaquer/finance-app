@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-23T00:00:00.000Z",
+  "title": "Design System: Finance App",
+  "extensions": {
+    "colorMeta": {
+      "vault-green": {
+        "role": "primary",
+        "displayName": "Vault Green",
+        "canonical": "oklch(0.508 0.118 165.612)",
+        "tonalRamp": [
+          "oklch(0.20 0.05 165.612)",
+          "oklch(0.30 0.075 165.612)",
+          "oklch(0.40 0.10 165.612)",
+          "oklch(0.508 0.118 165.612)",
+          "oklch(0.62 0.11 165.612)",
+          "oklch(0.74 0.08 165.612)",
+          "oklch(0.86 0.05 165.612)",
+          "oklch(0.95 0.02 165.612)"
+        ]
+      },
+      "income-emerald": {
+        "role": "secondary",
+        "displayName": "Income Emerald",
+        "canonical": "oklch(0.596 0.145 163.225)",
+        "tonalRamp": [
+          "oklch(0.22 0.06 163.225)",
+          "oklch(0.33 0.09 163.225)",
+          "oklch(0.45 0.12 163.225)",
+          "oklch(0.596 0.145 163.225)",
+          "oklch(0.70 0.15 163.225)",
+          "oklch(0.80 0.12 163.225)",
+          "oklch(0.89 0.07 163.225)",
+          "oklch(0.96 0.03 163.225)"
+        ]
+      },
+      "outcome-red": {
+        "role": "tertiary",
+        "displayName": "Outcome Red",
+        "canonical": "oklch(0.577 0.245 27.325)",
+        "tonalRamp": [
+          "oklch(0.22 0.10 27.325)",
+          "oklch(0.33 0.15 27.325)",
+          "oklch(0.45 0.20 27.325)",
+          "oklch(0.577 0.245 27.325)",
+          "oklch(0.68 0.20 27.325)",
+          "oklch(0.79 0.14 27.325)",
+          "oklch(0.89 0.08 27.325)",
+          "oklch(0.96 0.03 27.325)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.145 0 0)",
+        "tonalRamp": [
+          "oklch(0.145 0 0)",
+          "oklch(0.205 0 0)",
+          "oklch(0.269 0 0)",
+          "oklch(0.371 0 0)",
+          "oklch(0.556 0 0)",
+          "oklch(0.708 0 0)",
+          "oklch(0.922 0 0)",
+          "oklch(0.97 0 0)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.145 0 0)",
+          "oklch(0.205 0 0)",
+          "oklch(0.269 0 0)",
+          "oklch(0.556 0 0)",
+          "oklch(0.708 0 0)",
+          "oklch(0.922 0 0)",
+          "oklch(0.985 0 0)",
+          "oklch(1 0 0)"
+        ]
+      },
+      "quiet-ink": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "canonical": "oklch(0.556 0 0)",
+        "tonalRamp": [
+          "oklch(0.145 0 0)",
+          "oklch(0.269 0 0)",
+          "oklch(0.371 0 0)",
+          "oklch(0.439 0 0)",
+          "oklch(0.556 0 0)",
+          "oklch(0.708 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.97 0 0)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.922 0 0)",
+        "tonalRamp": [
+          "oklch(0.205 0 0)",
+          "oklch(0.269 0 0)",
+          "oklch(0.371 0 0)",
+          "oklch(0.556 0 0)",
+          "oklch(0.708 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.922 0 0)",
+          "oklch(0.985 0 0)"
+        ]
+      },
+      "chip-surface": {
+        "role": "neutral",
+        "displayName": "Chip Surface",
+        "canonical": "oklch(0.967 0.001 286.375)",
+        "tonalRamp": [
+          "oklch(0.21 0.006 286.375)",
+          "oklch(0.274 0.006 286.033)",
+          "oklch(0.40 0.005 286.375)",
+          "oklch(0.55 0.004 286.375)",
+          "oklch(0.70 0.003 286.375)",
+          "oklch(0.85 0.002 286.375)",
+          "oklch(0.967 0.001 286.375)",
+          "oklch(0.99 0.001 286.375)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page title and every large money figure on a summary card. One per region."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings inside the page, such as History."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles and dialog titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text: table cells, descriptions, form labels, buttons, empty-state copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Category chips and other small metadata. Sentence case only."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Money figures. Always tabular so columns align on the decimal."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resting",
+        "value": "0 1px 2px oklch(0.145 0 0 / 0.04), 0 2px 8px oklch(0.145 0 0 / 0.04)",
+        "purpose": "Cards and the table container at rest. Applied on top of the hairline ring, never instead of it."
+      },
+      {
+        "name": "overlay",
+        "value": "0 4px 6px -1px oklch(0.145 0 0 / 0.1), 0 2px 4px -2px oklch(0.145 0 0 / 0.1)",
+        "purpose": "Dialogs and select menus — anything floating above the page."
+      },
+      {
+        "name": "hairline-ring",
+        "value": "0 0 0 1px oklch(0.145 0 0 / 0.1)",
+        "purpose": "The universal surface separator. Every elevated surface carries it first."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px oklch(0.708 0 0 / 0.5)",
+        "purpose": "Keyboard focus on any interactive control, paired with a border shift to the ring color."
+      }
+    ],
+    "motion": [
+      {
+        "name": "overlay-enter",
+        "value": "100ms",
+        "purpose": "Dialog and select menu enter/exit: fade plus 95% zoom, with a 2px slide from the trigger side on menus."
+      },
+      {
+        "name": "state-transition",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for hover, focus, and color state changes on controls."
+      },
+      {
+        "name": "press-nudge",
+        "value": "translateY(1px)",
+        "purpose": "Tactile press response on every non-popup button."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action per screen — New transaction, Save transaction.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\"><svg class=\"ds-btn-icon\" viewBox=\"0 0 256 256\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z\"></path></svg>New transaction</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 10px; border: 1px solid transparent; border-radius: var(--radius-lg, 0.45rem); background: var(--primary, oklch(0.508 0.118 165.612)); color: var(--primary-foreground, oklch(0.979 0.021 166.113)); font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); font-size: 0.875rem; font-weight: 500; white-space: nowrap; cursor: pointer; transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.1s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: color-mix(in oklch, var(--primary, oklch(0.508 0.118 165.612)) 80%, transparent); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: none; border-color: var(--ring, oklch(0.708 0 0)); box-shadow: 0 0 0 3px oklch(0.708 0 0 / 0.5); } .ds-btn-primary:disabled { opacity: 0.5; pointer-events: none; } .ds-btn-icon { width: 16px; height: 16px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "The secondary action beside a primary one — Cancel in a dialog footer.",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\">Cancel</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 10px; border: 1px solid var(--border, oklch(0.922 0 0)); border-radius: var(--radius-lg, 0.45rem); background: var(--background, oklch(1 0 0)); color: var(--foreground, oklch(0.145 0 0)); font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); font-size: 0.875rem; font-weight: 500; white-space: nowrap; cursor: pointer; transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.1s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-outline:hover { background: var(--muted, oklch(0.97 0 0)); } .ds-btn-outline:active { transform: translateY(1px); } .ds-btn-outline:focus-visible { outline: none; border-color: var(--ring, oklch(0.708 0 0)); box-shadow: 0 0 0 3px oklch(0.708 0 0 / 0.5); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled form field used for transaction title and amount. 1rem on mobile so iOS never zooms on focus.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-amount\">Amount</label><input class=\"ds-field-input\" id=\"ds-amount\" inputmode=\"decimal\" placeholder=\"0.00\" type=\"text\" /></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); } .ds-field-label { font-size: 0.875rem; font-weight: 500; color: var(--foreground, oklch(0.145 0 0)); } .ds-field-input { height: 32px; width: 100%; min-width: 0; padding: 4px 10px; border: 1px solid var(--input, oklch(0.922 0 0)); border-radius: var(--radius-lg, 0.45rem); background: transparent; color: var(--foreground, oklch(0.145 0 0)); font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); } @media (min-width: 768px) { .ds-field-input { font-size: 0.875rem; } } .ds-field-input::placeholder { color: var(--muted-foreground, oklch(0.556 0 0)); } .ds-field-input:focus-visible { border-color: var(--ring, oklch(0.708 0 0)); box-shadow: 0 0 0 3px oklch(0.708 0 0 / 0.5); } .ds-field-input[aria-invalid=\"true\"] { border-color: var(--destructive, oklch(0.577 0.245 27.325)); box-shadow: 0 0 0 3px oklch(0.577 0.245 27.325 / 0.2); }"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "badge-secondary",
+      "description": "Informational pill carrying a transaction's category on a table row. No selected state.",
+      "html": "<span class=\"ds-chip\">Groceries</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 20px; width: fit-content; padding: 2px 8px; border: 1px solid transparent; border-radius: 1.17rem; background: var(--secondary, oklch(0.967 0.001 286.375)); color: var(--secondary-foreground, oklch(0.21 0.006 285.885)); font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); font-size: 0.75rem; font-weight: 500; line-height: 1rem; white-space: nowrap; }"
+    },
+    {
+      "name": "Summary Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The signature component: a labelled money figure with a tone-tinted circular icon well. Three of these carry income, outcome, and balance.",
+      "html": "<div class=\"ds-summary\"><div class=\"ds-summary-head\"><span class=\"ds-summary-label\">Total income</span><span class=\"ds-summary-well\"><svg viewBox=\"0 0 256 256\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm45.66 109.66a8 8 0 0 1-11.32 0L136 107.31V168a8 8 0 0 1-16 0v-60.69l-26.34 26.35a8 8 0 0 1-11.32-11.32l40-40a8 8 0 0 1 11.32 0l40 40a8 8 0 0 1 0 11.32Z\"></path></svg></span></div><p class=\"ds-summary-value\">$4,820.00</p></div>",
+      "css": ".ds-summary { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--radius-xl, 0.63rem); background: var(--card, oklch(1 0 0)); color: var(--card-foreground, oklch(0.145 0 0)); font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); box-shadow: 0 0 0 1px oklch(0.145 0 0 / 0.1), 0 1px 2px oklch(0.145 0 0 / 0.04), 0 2px 8px oklch(0.145 0 0 / 0.04); } .ds-summary-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; } .ds-summary-label { font-size: 0.875rem; font-weight: 500; color: var(--muted-foreground, oklch(0.556 0 0)); } .ds-summary-well { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 9999px; background: oklch(0.596 0.145 163.225 / 0.1); color: oklch(0.596 0.145 163.225); } .ds-summary-well svg { width: 20px; height: 20px; } .ds-summary-value { margin: 0; font-size: 1.5rem; font-weight: 600; line-height: 2rem; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; color: oklch(0.596 0.145 163.225); }"
+    },
+    {
+      "name": "Transaction Table",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The history surface: hairline-ruled rows, left-aligned title and category, right-aligned tabular amount colored by money direction.",
+      "html": "<div class=\"ds-table-shell\"><table class=\"ds-table\"><thead><tr><th>Title</th><th>Category</th><th>Date</th><th class=\"ds-num\">Amount</th></tr></thead><tbody><tr><td class=\"ds-title\">Salary</td><td><span class=\"ds-chip\">Salary</span></td><td class=\"ds-muted ds-num-text\">12 Aug 2026</td><td class=\"ds-num ds-amount-in\">+$3,200.00</td></tr><tr><td class=\"ds-title\">Grocery shopping</td><td><span class=\"ds-chip\">Groceries</span></td><td class=\"ds-muted ds-num-text\">14 Aug 2026</td><td class=\"ds-num ds-amount-out\">-$86.40</td></tr></tbody></table></div>",
+      "css": ".ds-table-shell { width: 100%; overflow-x: auto; border-radius: var(--radius-xl, 0.63rem); border: 1px solid var(--border, oklch(0.922 0 0)); background: var(--card, oklch(1 0 0)); box-shadow: 0 1px 2px oklch(0.145 0 0 / 0.04), 0 2px 8px oklch(0.145 0 0 / 0.04); } .ds-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); font-size: 0.875rem; color: var(--foreground, oklch(0.145 0 0)); } .ds-table th { height: 40px; padding: 0 8px; text-align: left; font-weight: 500; white-space: nowrap; border-bottom: 1px solid var(--border, oklch(0.922 0 0)); } .ds-table td { padding: 8px; white-space: nowrap; vertical-align: middle; border-bottom: 1px solid var(--border, oklch(0.922 0 0)); } .ds-table tbody tr:last-child td { border-bottom: 0; } .ds-table tbody tr { transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1); } .ds-table tbody tr:hover { background: color-mix(in oklch, var(--muted, oklch(0.97 0 0)) 50%, transparent); } .ds-title { font-weight: 500; } .ds-muted { color: var(--muted-foreground, oklch(0.556 0 0)); } .ds-num-text { font-variant-numeric: tabular-nums; } .ds-num { text-align: right; font-variant-numeric: tabular-nums; } .ds-amount-in { font-weight: 600; color: oklch(0.596 0.145 163.225); } .ds-amount-out { font-weight: 600; color: var(--destructive, oklch(0.577 0.245 27.325)); } .ds-chip { display: inline-flex; align-items: center; height: 20px; padding: 2px 8px; border-radius: 1.17rem; background: var(--secondary, oklch(0.967 0.001 286.375)); color: var(--secondary-foreground, oklch(0.21 0.006 285.885)); font-size: 0.75rem; font-weight: 500; line-height: 1rem; }"
+    },
+    {
+      "name": "Empty State",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Shown in place of the table when no transactions exist. Dashed hairline container, one instruction, no apology.",
+      "html": "<div class=\"ds-empty\"><svg class=\"ds-empty-icon\" viewBox=\"0 0 256 256\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M216 40H40a16 16 0 0 0-16 16v168a8 8 0 0 0 11.58 7.16L64 217l28.42 14.16a8 8 0 0 0 7.16 0L128 217l28.42 14.16a8 8 0 0 0 7.16 0L192 217l28.42 14.16A8 8 0 0 0 232 224V56a16 16 0 0 0-16-16Zm-45.66 106.34a8 8 0 0 1-11.32 11.32L128 126.63l-31.02 31.03a8 8 0 0 1-11.32-11.32L116.69 116 85.66 84.98a8 8 0 0 1 11.32-11.32L128 104.69l31.02-31.03a8 8 0 1 1 11.32 11.32L139.31 116Z\"></path></svg><h3 class=\"ds-empty-title\">No transactions yet</h3><p class=\"ds-empty-copy\">Add your first income or outcome to start tracking your balance.</p></div>",
+      "css": ".ds-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 64px 24px; border: 1px dashed var(--border, oklch(0.922 0 0)); border-radius: var(--radius-xl, 0.63rem); text-align: center; font-family: var(--font-sans, 'Nunito Sans', ui-sans-serif, system-ui, sans-serif); } .ds-empty-icon { width: 32px; height: 32px; color: var(--muted-foreground, oklch(0.556 0 0)); } .ds-empty-title { margin: 0; font-size: 1rem; font-weight: 500; color: var(--foreground, oklch(0.145 0 0)); } .ds-empty-copy { margin: 0; max-width: 24rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--muted-foreground, oklch(0.556 0 0)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pocket Teller",
+    "overview": "A bank window that fits in a hand. The product is used standing up, one-handed, seconds after money moves — so every surface has to earn its place on a small screen, and the interface behaves like a teller who already knows why you walked up: it shows the balance, takes the entry, and gets out of the way.\n\nThe register is quiet and monetary. A single desaturated green (Vault Green) carries brand and action; money itself speaks in a separate two-tone language of emerald for income and red for outcome, and nothing else in the system is allowed to borrow those two colors. Type is a soft humanist sans (Nunito Sans) run at small sizes with tight tracking, with tabular figures wherever a number can be compared to another number. Surfaces are near-white paper with hairline rings, gently lifted so a card reads as a physical slip rather than a painted rectangle.\n\nDensity is compact by intent — 32px controls, 16px card padding, 16px gaps — because the design starts at a phone and grows outward, never the reverse. What it rejects: crypto-fintech neon (glassmorphism, gradient glow, purple-to-cyan), corporate bank blue (navy chrome, enterprise widget density), and playful cartoon budgeting (mascots, confetti, pastel gamification).",
+    "keyCharacteristics": [
+      "Mobile-first density: 32px control height, 16px rhythm, thumb-reachable primary action",
+      "One brand green, held apart from the money colors",
+      "Emerald/red as a strict semantic pair, never decoration",
+      "Tabular numerals on every figure, right-aligned in tables",
+      "Near-white paper, hairline rings, gentle ambient lift",
+      "Rounded but not soft: 7.2px base radius, pill only for category chips"
+    ],
+    "rules": [
+      {
+        "name": "The Money Duotone Rule",
+        "body": "Emerald and red mean income and outcome. Nothing decorative may use them — no emerald success toasts, no red badges for non-financial state. If a color on screen is emerald or red, a user is entitled to read it as money direction.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Accent Rule",
+        "body": "Vault Green is the only brand color. Never introduce a second accent hue for a new feature; reach for neutral weight, position, or the money duotone instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Tinted-Card Rule",
+        "body": "Card backgrounds equal the page background. Depth comes from the hairline ring and ambient lift. A card that tints itself is a card that has stopped being paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Money Rule",
+        "body": "Every rendered amount and date carries tabular-nums. Figures that sit in a column must align on the decimal, at any weight or size.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Nunito Sans carries display, body, and label. Hierarchy is made from weight, size, and tracking — never from a second display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "All UI copy is sentence case, including buttons and headers (\"New transaction\", \"Total income\"). No uppercase labels, no title case.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Column Rule",
+        "body": "The layout is one column that widens. Multi-column arrangements are permitted only inside a region (the summary grid), never as page structure.",
+        "section": "layout"
+      },
+      {
+        "name": "The Scroll-Don't-Squeeze Rule",
+        "body": "Tabular data scrolls sideways in its own container. Never shrink a money column to fit, never truncate an amount.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ring-First Rule",
+        "body": "Every elevated surface gets the hairline ring first; shadow is added on top of it, never in place of it. In dark mode the ring becomes oklch(1 0 0 / 10%) and the shadow all but disappears — depth there is carried by the lighter card fill.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Two-Step Rule",
+        "body": "There are exactly two elevations: resting and overlay. Nothing sits between them, and nothing stacks above an overlay.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Circle-Means-Icon Rule",
+        "body": "Full-round shapes are reserved for category chips and icon wells. A rectangular element never becomes a pill to attract attention.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do put every amount and date in tabular figures, and right-align amounts in any column.",
+      "Do keep money in the duotone: Income Emerald for income, Outcome Red for outcome, Ink for a neutral total.",
+      "Do size controls at 32px with the 4/8/16/24/32/40 spacing ladder — the phone is the design target.",
+      "Do separate surfaces with the 1px foreground/10 ring first, then the Resting shadow.",
+      "Do write UI copy in sentence case, and label a busy button with its action in progress (\"Saving…\").",
+      "Do give every icon-only control an aria-label and every decorative icon aria-hidden=\"true\".",
+      "Do let tabular regions scroll horizontally inside their rounded container."
+    ],
+    "donts": [
+      "Don't introduce a second brand accent, gradient, or glow — Vault Green is the only brand color.",
+      "Don't use emerald or red for anything that is not money direction.",
+      "Don't tint a card background away from the page background to suggest depth.",
+      "Don't uppercase or letter-space labels, or add a second typeface.",
+      "Don't truncate, abbreviate, or round an amount to make a column fit.",
+      "Don't stack a third elevation level, or float anything above a dialog.",
+      "Don't reach for navy chrome, enterprise widget density, mascots, confetti, or pastel gamification."
+    ]
+  }
+}
