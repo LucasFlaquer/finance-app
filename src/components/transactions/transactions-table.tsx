@@ -18,7 +18,7 @@ export function TransactionsTable({ transactions }: TransactionsTableProps) {
     return <TransactionsEmptyState />;
   }
   return (
-    <div className="overflow-x-auto rounded-xl border border-border">
+    <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-resting">
       <Table>
         <TableHeader>
           <TableRow>
