@@ -42,3 +42,6 @@ dist/
 .env
 
 /app/generated/prisma
+
+# claude code worktrees
+.claude/worktrees/
