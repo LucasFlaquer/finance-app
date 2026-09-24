@@ -1,14 +1,15 @@
 # Finance App
 
-Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4 + shadcn/ui (Base UI), backed by PostgreSQL 17 via Prisma ORM Postgres (`prisma-next`, contract-based). Package manager: **pnpm**.
+Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4 + shadcn/ui (Base UI), backed by PostgreSQL 17 via Prisma ORM 7 (`prisma-client` generator + `@prisma/adapter-pg` driver adapter). Package manager: **pnpm**.
 
 ## Getting Started
 
 ```bash
 pnpm install                  # install dependencies (also runs `lefthook install` via prepare)
-cp .env.example .env          # then set DATABASE_URL
+cp .env.example .env          # defaults match docker-compose.yml
 docker compose up -d          # start PostgreSQL 17 on localhost:5432
-pnpm contract:emit            # generate Prisma contract artifacts from contract.prisma
+pnpm db:migrate               # apply migrations from prisma/migrations
+pnpm db:seed                  # seed default categories and sample transactions
 pnpm dev                      # start dev server
 ```
 
@@ -18,7 +19,7 @@ pnpm dev                      # start dev server
 | --- | --- |
 | Next.js dev server | http://localhost:3000 |
 | Next.js production server (`pnpm start`) | http://localhost:3000 |
-| PostgreSQL (docker compose service `db`) | localhost:5432 (user `user`, password `password`, db `mydb`) |
+| PostgreSQL (docker compose service `db`) | localhost:5432 (user `docker`, password `docker`, db `finance`) |
 
 Override the app port with `pnpm dev -- -p <port>`.
 
@@ -34,7 +35,10 @@ Override the app port with `pnpm dev -- -p <port>`.
 | `pnpm check` | Ultracite check (lint + format verification) |
 | `pnpm fix` | Auto-fix lint/format issues |
 | `pnpm format` | Format only (`biome format --write`) |
-| `pnpm contract:emit` | Emit Prisma contract (`contract.json` / `contract.d.ts`) from `contract.prisma` |
+| `pnpm db:generate` | Regenerate the Prisma client into `src/generated/prisma` (`prisma generate`) |
+| `pnpm db:migrate` | Create/apply migrations in development (`prisma migrate dev`; add `--name <name>` for a new one) |
+| `pnpm db:reset` | Drop, recreate and re-migrate the database (`prisma migrate reset`); Prisma 7 does not auto-seed, run `pnpm db:seed` after |
+| `pnpm db:seed` | Seed the database (`prisma db seed` → `tsx prisma/seed.ts`) |
 | `docker compose up -d` / `docker compose down` | Start / stop the PostgreSQL database |
 
 ### Tests
@@ -62,20 +66,26 @@ finance-app/
 │   │   ├── globals.css       # Tailwind v4 entry + design tokens/theme variables
 │   │   └── favicon.ico
 │   ├── components/
-│   │   └── ui/               # shadcn/ui primitives (e.g. button.tsx) — generated, edit with care
+│   │   ├── ui/               # shadcn/ui primitives (e.g. button.tsx) — generated, edit with care
+│   │   └── <feature>/        # Application components grouped by feature (transactions, theme, ...)
+│   ├── hooks/                # `use*` hooks holding stateful logic
 │   ├── lib/
-│   │   └── utils.ts          # Shared helpers (`cn` class-merge utility)
-│   └── prisma/
-│       ├── contract.prisma   # Source of truth for the data model
-│       ├── contract.json     # Generated contract consumed at runtime
-│       ├── contract.d.ts     # Generated TypeScript types for the contract
-│       └── db.ts             # Database client singleton (`db`) — import this for queries
+│   │   ├── prisma.ts         # Prisma client singleton (default export `prisma`) — import this for queries
+│   │   ├── utils.ts          # Shared helpers (`cn` class-merge utility)
+│   │   └── <feature>/        # Pure logic, types and formatters per feature
+│   ├── server/               # Server-side data access and server actions (the only place that queries Prisma)
+│   └── generated/prisma/     # Generated Prisma client (`pnpm db:generate`) — do not edit
+├── prisma/
+│   ├── schema.prisma         # Source of truth for the data model
+│   ├── migrations/           # SQL migrations (`pnpm db:migrate`)
+│   ├── seed.ts               # Seed script
+│   └── seed-data.ts          # Default categories and sample transactions
 ├── public/                   # Static assets served at the site root (/file.svg, ...)
 ├── .claude/
 │   ├── CLAUDE.md             # Claude Code entry point; re-exports AGENTS.md
 │   ├── settings.json         # Claude Code project settings
 │   ├── rules/                # Project rules (code-standards, react, tests)
-│   └── skills/               # Project skills (shadcn)
+│   └── skills/               # Project skills (spec-driven workflow, shadcn, prisma, impeccable)
 ├── .cursor/hooks.json        # Cursor editor hooks
 ├── .vscode/settings.json     # Editor settings (Biome as formatter)
 ├── AGENTS.md                 # This file — agent/contributor guide + code standards
@@ -86,8 +96,7 @@ finance-app/
 ├── lefthook.yml              # Git hooks (pre-commit runs `ultracite fix`)
 ├── next.config.ts            # Next.js configuration
 ├── postcss.config.mjs        # PostCSS with @tailwindcss/postcss plugin
-├── prisma-next.config.ts     # Prisma contract + DB connection configuration
-├── prisma-next.md            # Prisma ORM Postgres (prisma-next) usage notes
+├── prisma.config.ts          # Prisma CLI config (schema path, migrations path, seed command, DATABASE_URL)
 ├── tsconfig.json             # TypeScript config (path alias `@/*` → `src/*`)
 ├── .env.example              # Template for `.env` (DATABASE_URL)
 └── pnpm-workspace.yaml       # pnpm workspace configuration
