@@ -33,9 +33,9 @@ Prisma setup (per `AGENTS.md`): mock `@/lib/prisma` (default export `prisma`).
 
 ## Subtasks
 
-- [ ] 5.1 `src/app/transactions/page.tsx` (`dynamic = "force-dynamic"`, `metadata` title), fetching `listTransactions`, `getTransactionsSummary` and `listCategories` in parallel.
-- [ ] 5.2 `src/app/layout.tsx`: root `metadata` title "Finance".
-- [ ] 5.3 Integration tests (TI-04, TI-05).
+- [x] 5.1 `src/app/transactions/page.tsx` (`dynamic = "force-dynamic"`, `metadata` title), fetching `listTransactions`, `getTransactionsSummary` and `listCategories` in parallel.
+- [x] 5.2 `src/app/layout.tsx`: root `metadata` title "Finance".
+- [x] 5.3 Integration tests (TI-04, TI-05).
 
 ## Implementation details
 
@@ -56,8 +56,8 @@ See `techspec.md`:
 
 ### Integration tests
 
-- [ ] TI-04 — transactions page renders all-time cards, history and current nav
-- [ ] TI-05 — transactions page shows the empty state without transactions
+- [x] TI-04 — transactions page renders all-time cards, history and current nav
+- [x] TI-05 — transactions page shows the empty state without transactions
 
 ## Relevant files
 

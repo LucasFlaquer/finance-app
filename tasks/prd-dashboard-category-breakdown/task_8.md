@@ -43,13 +43,13 @@ Read `AGENTS.md`, `.claude/rules/code-standards.md`, `.claude/rules/react.md` an
 
 ## Subtasks
 
-- [ ] 8.1 `src/components/dashboard/month-navigation.tsx` (props `month`, `currentMonth`).
-- [ ] 8.2 `src/hooks/use-breakdown-type.ts`.
-- [ ] 8.3 `src/components/dashboard/breakdown-type-toggle.tsx`.
-- [ ] 8.4 `src/components/dashboard/category-breakdown-row.tsx` and `category-breakdown-list.tsx`.
-- [ ] 8.5 `src/components/dashboard/category-breakdown-empty-state.tsx`.
-- [ ] 8.6 `src/components/dashboard/category-breakdown-section.tsx` (props `month`, `breakdowns`).
-- [ ] 8.7 Unit tests (TU-27 to TU-33, TU-38).
+- [x] 8.1 `src/components/dashboard/month-navigation.tsx` (props `month`, `currentMonth`).
+- [x] 8.2 `src/hooks/use-breakdown-type.ts`.
+- [x] 8.3 `src/components/dashboard/breakdown-type-toggle.tsx`.
+- [x] 8.4 `src/components/dashboard/category-breakdown-row.tsx` and `category-breakdown-list.tsx`.
+- [x] 8.5 `src/components/dashboard/category-breakdown-empty-state.tsx`.
+- [x] 8.6 `src/components/dashboard/category-breakdown-section.tsx` (props `month`, `breakdowns`).
+- [x] 8.7 Unit tests (TU-27 to TU-33, TU-38).
 
 ## Implementation details
 
@@ -74,14 +74,14 @@ See `techspec.md`:
 
 ### Unit tests
 
-- [ ] TU-27 — month navigation links to the previous month
-- [ ] TU-28 — next month is disabled on the current month
-- [ ] TU-29 — next month links forward on a past month
-- [ ] TU-30 — breakdown defaults to Outcome and toggles to Income
-- [ ] TU-31 — section heading names type and month
-- [ ] TU-32 — list rows show name, amount, percentage, count and swatch
-- [ ] TU-33 — empty type total shows empty state instead of the pie
-- [ ] TU-38 — useBreakdownType defaults to OUTCOME and updates
+- [x] TU-27 — month navigation links to the previous month
+- [x] TU-28 — next month is disabled on the current month
+- [x] TU-29 — next month links forward on a past month
+- [x] TU-30 — breakdown defaults to Outcome and toggles to Income
+- [x] TU-31 — section heading names type and month
+- [x] TU-32 — list rows show name, amount, percentage, count and swatch
+- [x] TU-33 — empty type total shows empty state instead of the pie
+- [x] TU-38 — useBreakdownType defaults to OUTCOME and updates
 
 ## Relevant files
 

@@ -34,10 +34,10 @@ Prisma setup (per `AGENTS.md`): schema `prisma/schema.prisma` (Prisma 7, `prisma
 
 ## Subtasks
 
-- [ ] 3.1 Add `@@index([createdAt])` to `Transaction` in `prisma/schema.prisma`, run `pnpm db:migrate --name add_transaction_created_at_index`, and commit the generated migration.
-- [ ] 3.2 `src/server/dashboard/get-monthly-category-totals.ts`: `groupBy`, then `CategoryTypeTotal[]` in cents.
-- [ ] 3.3 `src/server/dashboard/get-monthly-dashboard.ts`: runs `getMonthlyCategoryTotals(monthRange(month))` and `listCategories()` in parallel, then `buildMonthlyDashboard`, adding `month`.
-- [ ] 3.4 Unit tests with Prisma mocked (TU-22, TU-23).
+- [x] 3.1 Add `@@index([createdAt])` to `Transaction` in `prisma/schema.prisma`, run `pnpm db:migrate --name add_transaction_created_at_index`, and commit the generated migration.
+- [x] 3.2 `src/server/dashboard/get-monthly-category-totals.ts`: `groupBy`, then `CategoryTypeTotal[]` in cents.
+- [x] 3.3 `src/server/dashboard/get-monthly-dashboard.ts`: runs `getMonthlyCategoryTotals(monthRange(month))` and `listCategories()` in parallel, then `buildMonthlyDashboard`, adding `month`.
+- [x] 3.4 Unit tests with Prisma mocked (TU-22, TU-23).
 
 ## Implementation details
 
@@ -59,8 +59,8 @@ See `techspec.md`:
 
 ### Unit tests
 
-- [ ] TU-22 — queries grouped totals within the month range
-- [ ] TU-23 — composes the monthly dashboard
+- [x] TU-22 — queries grouped totals within the month range
+- [x] TU-23 — composes the monthly dashboard
 
 ## Relevant files
 

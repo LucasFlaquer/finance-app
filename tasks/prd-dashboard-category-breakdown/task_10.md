@@ -42,12 +42,12 @@ Prisma setup (per `AGENTS.md`): schema `prisma/schema.prisma`, seed `prisma/seed
 
 ## Subtasks
 
-- [ ] 10.1 Install `@playwright/test` and `@axe-core/playwright`, run `pnpm exec playwright install chromium`, and add a `test:e2e` script to `package.json`.
-- [ ] 10.2 `playwright.config.ts` (port 3100, `webServer`, `DATABASE_URL` = `E2E_DATABASE_URL`). Add `E2E_DATABASE_URL` to `.env.example`.
-- [ ] 10.3 `e2e/global-setup.ts`: create `finance_e2e` if missing, `prisma migrate deploy`, deterministic seed relative to the current UTC month (reusable reseed helper).
-- [ ] 10.4 E2E specs (E2E-01 to E2E-12).
-- [ ] 10.5 `vitest.config.ts`: `exclude` `e2e/**`. `coverage.include` adds `src/lib/**`, `src/hooks/**`, `src/server/**`, `src/components/**` (excluding `src/components/ui/**`) and `src/app/**/page.tsx`.
-- [ ] 10.6 Run `pnpm test:coverage`, `pnpm test:e2e` and `pnpm check`. Fix any gaps.
+- [x] 10.1 Install `@playwright/test` and `@axe-core/playwright`, run `pnpm exec playwright install chromium`, and add a `test:e2e` script to `package.json`.
+- [x] 10.2 `playwright.config.ts` (port 3100, `webServer`, `DATABASE_URL` = `E2E_DATABASE_URL`). Add `E2E_DATABASE_URL` to `.env.example`.
+- [x] 10.3 `e2e/global-setup.ts`: create `finance_e2e` if missing, `prisma migrate deploy`, deterministic seed relative to the current UTC month (reusable reseed helper).
+- [x] 10.4 E2E specs (E2E-01 to E2E-12).
+- [x] 10.5 `vitest.config.ts`: `exclude` `e2e/**`. `coverage.include` adds `src/lib/**`, `src/hooks/**`, `src/server/**`, `src/components/**` (excluding `src/components/ui/**`) and `src/app/**/page.tsx`.
+- [x] 10.6 Run `pnpm test:coverage`, `pnpm test:e2e` and `pnpm check`. Fix any gaps.
 
 ## Implementation details
 
@@ -84,18 +84,18 @@ See `techspec.md`:
 
 ### E2E tests
 
-- [ ] E2E-01 — header is present and navigates between pages
-- [ ] E2E-02 — dashboard opens on the current month with Outcome selected
-- [ ] E2E-03 — previous/next month updates URL and data and survives reload
-- [ ] E2E-04 — invalid and future month params redirect to the current month
-- [ ] E2E-05 — creating an outcome from the dashboard updates the breakdown
-- [ ] E2E-06 — creating a transaction on the transactions page updates history
-- [ ] E2E-07 — switching to Income shows income categories
-- [ ] E2E-08 — keyboard focus on a slice announces its details
-- [ ] E2E-09 — pages pass an automated accessibility audit in both themes
-- [ ] E2E-10 — dashboard key content is above the fold at 1280×800
-- [ ] E2E-11 — pages do not scroll horizontally at 360px
-- [ ] E2E-12 — a month without outcome shows the empty state
+- [x] E2E-01 — header is present and navigates between pages
+- [x] E2E-02 — dashboard opens on the current month with Outcome selected
+- [x] E2E-03 — previous/next month updates URL and data and survives reload
+- [x] E2E-04 — invalid and future month params redirect to the current month
+- [x] E2E-05 — creating an outcome from the dashboard updates the breakdown
+- [x] E2E-06 — creating a transaction on the transactions page updates history
+- [x] E2E-07 — switching to Income shows income categories
+- [x] E2E-08 — keyboard focus on a slice announces its details
+- [x] E2E-09 — pages pass an automated accessibility audit in both themes
+- [x] E2E-10 — dashboard key content is above the fold at 1280×800
+- [x] E2E-11 — pages do not scroll horizontally at 360px
+- [x] E2E-12 — a month without outcome shows the empty state
 
 ## Relevant files
 

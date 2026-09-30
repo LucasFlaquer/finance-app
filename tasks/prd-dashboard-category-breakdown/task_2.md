@@ -35,13 +35,13 @@ Read `AGENTS.md`, `.claude/rules/code-standards.md`, `.claude/rules/react.md` an
 
 ## Subtasks
 
-- [ ] 2.1 `src/lib/money/cents.ts`: `toCents(decimal | number | null)`, `fromCents(cents)`.
-- [ ] 2.2 `src/lib/format-percentage.ts`: `formatPercentage(30) → "30.0%"`.
-- [ ] 2.3 `src/lib/dashboard/dashboard-types.ts`: `CategoryTypeTotal`, `CategoryBreakdownRow`, `CategoryBreakdown`, `MonthlyDashboard`.
-- [ ] 2.4 `src/lib/dashboard/category-colors.ts`: `categoryColor(alphabeticalIndex)`.
-- [ ] 2.5 `src/lib/dashboard/build-category-breakdown.ts`.
-- [ ] 2.6 `src/lib/dashboard/build-monthly-dashboard.ts`.
-- [ ] 2.7 Colocated unit tests (TU-11 to TU-21).
+- [x] 2.1 `src/lib/money/cents.ts`: `toCents(decimal | number | null)`, `fromCents(cents)`.
+- [x] 2.2 `src/lib/format-percentage.ts`: `formatPercentage(30) → "30.0%"`.
+- [x] 2.3 `src/lib/dashboard/dashboard-types.ts`: `CategoryTypeTotal`, `CategoryBreakdownRow`, `CategoryBreakdown`, `MonthlyDashboard`.
+- [x] 2.4 `src/lib/dashboard/category-colors.ts`: `categoryColor(alphabeticalIndex)`.
+- [x] 2.5 `src/lib/dashboard/build-category-breakdown.ts`.
+- [x] 2.6 `src/lib/dashboard/build-monthly-dashboard.ts`.
+- [x] 2.7 Colocated unit tests (TU-11 to TU-21).
 
 ## Implementation details
 
@@ -65,17 +65,17 @@ See `techspec.md`:
 
 ### Unit tests
 
-- [ ] TU-11 — computes category amounts and percentages
-- [ ] TU-12 — counts transactions per category
-- [ ] TU-13 — category amounts sum exactly to the type total
-- [ ] TU-14 — percentages sum to 100 within 0.1
-- [ ] TU-15 — orders non-zero by amount desc then zero alphabetically
-- [ ] TU-16 — only aggregates the requested type
-- [ ] TU-17 — returns all categories at zero when total is zero
-- [ ] TU-18 — assigns stable colors by alphabetical index and cycles
-- [ ] TU-19 — converts decimals to integer cents
-- [ ] TU-20 — month summary equals breakdown totals
-- [ ] TU-21 — formats percentages with one decimal
+- [x] TU-11 — computes category amounts and percentages
+- [x] TU-12 — counts transactions per category
+- [x] TU-13 — category amounts sum exactly to the type total
+- [x] TU-14 — percentages sum to 100 within 0.1
+- [x] TU-15 — orders non-zero by amount desc then zero alphabetically
+- [x] TU-16 — only aggregates the requested type
+- [x] TU-17 — returns all categories at zero when total is zero
+- [x] TU-18 — assigns stable colors by alphabetical index and cycles
+- [x] TU-19 — converts decimals to integer cents
+- [x] TU-20 — month summary equals breakdown totals
+- [x] TU-21 — formats percentages with one decimal
 
 ## Relevant files
 
