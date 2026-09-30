@@ -12,7 +12,7 @@ export async function createTransaction(
   try {
     const input = parseTransactionInput(formData);
     await prisma.transaction.create({ data: input });
-    revalidatePath("/");
+    revalidatePath("/", "layout");
     return { error: null, status: "success" };
   } catch (error) {
     return {
