@@ -21,7 +21,7 @@ export type NewTransactionDialogProps = {
 export function NewTransactionDialog({
   categories,
 }: NewTransactionDialogProps) {
-  const { error, isOpen, isPending, openChange, submit } =
+  const { close, error, isOpen, isPending, openChange, submit } =
     useCreateTransactionForm();
   return (
     <Dialog onOpenChange={openChange} open={isOpen}>
@@ -40,7 +40,7 @@ export function NewTransactionDialog({
           categories={categories}
           error={error}
           isPending={isPending}
-          onCancel={() => openChange(false)}
+          onCancel={close}
           onSubmit={submit}
         />
       </DialogContent>

@@ -14,6 +14,7 @@ export function useCreateTransactionForm() {
       setState(INITIAL_CREATE_TRANSACTION_STATE);
     }
   };
+  const close = () => openChange(false);
   const submit = (formData: FormData) => {
     startTransition(async () => {
       const result = await createTransaction(state, formData);
@@ -23,5 +24,12 @@ export function useCreateTransactionForm() {
       }
     });
   };
-  return { error: state.error, isOpen, isPending, openChange, submit };
+  return {
+    close,
+    error: state.error,
+    isOpen,
+    isPending,
+    openChange,
+    submit,
+  };
 }

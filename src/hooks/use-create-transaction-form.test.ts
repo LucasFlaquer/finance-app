@@ -77,4 +77,13 @@ describe("useCreateTransactionForm", () => {
 
     expect(result.current.error).toBeNull();
   });
+
+  it("closes the dialog through close", () => {
+    const { result } = renderHook(() => useCreateTransactionForm());
+    act(() => result.current.openChange(true));
+
+    act(() => result.current.close());
+
+    expect(result.current.isOpen).toBe(false);
+  });
 });
