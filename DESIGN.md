@@ -150,6 +150,8 @@ A near-neutral grayscale field with exactly three saturated voices: one brand gr
 
 **The Single Accent Rule.** Vault Green is the only brand color. Never introduce a second accent hue for a new feature; reach for neutral weight, position, or the money duotone instead.
 
+**The Chart Palette Exception.** Data-viz marks (pie slices and their list swatches) use a ten-hue categorical palette, `--chart-1` to `--chart-10`, defined in `globals.css` for light and dark. It is the one sanctioned exception to the Single Accent and Money Duotone rules: the hues avoid emerald and red so a slice is never read as money direction, every hue holds at least 3:1 non-text contrast against `--card` in both themes (ratios are recorded beside the tokens), and a category keeps its color by alphabetical index. Never use these tokens for buttons, badges, text, or any other chrome.
+
 **The No-Tinted-Card Rule.** Card backgrounds equal the page background. Depth comes from the hairline ring and ambient lift. A card that tints itself is a card that has stopped being paper.
 
 ## Typography

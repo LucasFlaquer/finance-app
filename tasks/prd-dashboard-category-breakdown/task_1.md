@@ -34,11 +34,11 @@ Read `AGENTS.md`, `.claude/rules/code-standards.md`, `.claude/rules/react.md` an
 
 ## Subtasks
 
-- [ ] 1.1 `year-month.ts`: `YearMonth`, `currentYearMonth(now)`, `shiftMonth(value, delta)`, `compareYearMonth(a, b)`, `monthRange(value)` (UTC `[start, end)`).
-- [ ] 1.2 `month-param.ts`: `parseMonthParam(raw)` (regex, array → `null`), `formatMonthParam(value)`.
-- [ ] 1.3 `format-month.ts`: `formatMonthLabel(value)` with `Intl.DateTimeFormat` en-US, `timeZone: "UTC"`.
-- [ ] 1.4 `resolve-selected-month.ts`: `SelectedMonth` union and `resolveSelectedMonth(raw, now)`.
-- [ ] 1.5 Colocated unit tests for every helper (TU-01 to TU-10).
+- [x] 1.1 `year-month.ts`: `YearMonth`, `currentYearMonth(now)`, `shiftMonth(value, delta)`, `compareYearMonth(a, b)`, `monthRange(value)` (UTC `[start, end)`).
+- [x] 1.2 `month-param.ts`: `parseMonthParam(raw)` (regex, array → `null`), `formatMonthParam(value)`.
+- [x] 1.3 `format-month.ts`: `formatMonthLabel(value)` with `Intl.DateTimeFormat` en-US, `timeZone: "UTC"`.
+- [x] 1.4 `resolve-selected-month.ts`: `SelectedMonth` union and `resolveSelectedMonth(raw, now)`.
+- [x] 1.5 Colocated unit tests for every helper (TU-01 to TU-10).
 
 ## Implementation details
 
@@ -65,16 +65,16 @@ See `techspec.md`:
 
 ### Unit tests
 
-- [ ] TU-01 — parses a valid month param
-- [ ] TU-02 — rejects malformed month params
-- [ ] TU-03 — derives the current month in UTC
-- [ ] TU-04 — shifts months across year boundaries
-- [ ] TU-05 — builds a UTC half-open month range
-- [ ] TU-06 — formats month label and param
-- [ ] TU-07 — selects the current month when param is absent
-- [ ] TU-08 — redirects a future month to the current month
-- [ ] TU-09 — redirects an invalid month to the current month
-- [ ] TU-10 — selects a valid past month
+- [x] TU-01 — parses a valid month param
+- [x] TU-02 — rejects malformed month params
+- [x] TU-03 — derives the current month in UTC
+- [x] TU-04 — shifts months across year boundaries
+- [x] TU-05 — builds a UTC half-open month range
+- [x] TU-06 — formats month label and param
+- [x] TU-07 — selects the current month when param is absent
+- [x] TU-08 — redirects a future month to the current month
+- [x] TU-09 — redirects an invalid month to the current month
+- [x] TU-10 — selects a valid past month
 
 ## Relevant files
 

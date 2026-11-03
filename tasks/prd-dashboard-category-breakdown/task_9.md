@@ -35,8 +35,8 @@ Prisma setup (per `AGENTS.md`): mock `@/lib/prisma` (default export `prisma`) wi
 
 ## Subtasks
 
-- [ ] 9.1 Rewrite `src/app/page.tsx` (`dynamic = "force-dynamic"`, `metadata` title, `resolveSelectedMonth` + `redirect`).
-- [ ] 9.2 Integration tests (TI-01 to TI-03).
+- [x] 9.1 Rewrite `src/app/page.tsx` (`dynamic = "force-dynamic"`, `metadata` title, `resolveSelectedMonth` + `redirect`).
+- [x] 9.2 Integration tests (TI-01 to TI-03).
 
 ## Implementation details
 
@@ -58,9 +58,9 @@ See `techspec.md`:
 
 ### Integration tests
 
-- [ ] TI-01 — dashboard page redirects an invalid month param
-- [ ] TI-02 — dashboard page renders month cards and breakdown without history
-- [ ] TI-03 — dashboard breakdown totals equal the balance cards
+- [x] TI-01 — dashboard page redirects an invalid month param
+- [x] TI-02 — dashboard page renders month cards and breakdown without history
+- [x] TI-03 — dashboard breakdown totals equal the balance cards
 
 ## Relevant files
 

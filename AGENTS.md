@@ -50,8 +50,9 @@ Unit and integration tests run on **Vitest** (jsdom + Testing Library). Tests li
 | `pnpm test` | Run the suite once |
 | `pnpm test:watch` | Run the suite in watch mode |
 | `pnpm test:coverage` | Run with V8 coverage (80% threshold) |
+| `pnpm test:e2e` | Run the Playwright E2E suite |
 
-Playwright E2E is specified in the testing rules but not wired up yet.
+E2E runs on **Playwright** (`e2e/**/*.spec.ts`, Chromium) against a production build on port 3100 and a dedicated `finance_e2e` database (`E2E_DATABASE_URL` in `.env`, name must end with `_e2e`). `pnpm test:e2e` builds, starts the server, creates/migrates the database and reseeds a fixture relative to the current UTC month. Requires `docker compose up -d` and `pnpm exec playwright install chromium`.
 
 Full testing rules, with examples, live in [.claude/rules/tests.md](.claude/rules/tests.md). Those rules take precedence over any conflicting guidance elsewhere.
 

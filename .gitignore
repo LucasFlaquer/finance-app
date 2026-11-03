@@ -45,3 +45,7 @@ dist/
 
 # claude code worktrees
 .claude/worktrees/
+
+# playwright
+/test-results/
+/playwright-report/

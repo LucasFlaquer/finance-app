@@ -13,7 +13,8 @@
       "!dist",
       "!build",
       "!.claude/skills",
-      "!.cursor/skills"
+      "!.cursor/skills",
+      "!public"
     ]
   },
   "formatter": {
@@ -24,9 +25,17 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "suspicious": {
         "noUnknownAtRules": "off"
+      },
+      "style": {
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "type"
+          }
+        }
       }
     },
     "domains": {
@@ -45,5 +54,32 @@
     "ultracite/biome/core",
     "ultracite/biome/react",
     "ultracite/biome/next"
+  ],
+  "overrides": [
+    {
+      "includes": ["src/components/ui/**"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noLabelWithoutControl": "off"
+          },
+          "complexity": {
+            "noExcessiveCognitiveComplexity": "off"
+          },
+          "performance": {
+            "noNamespaceImport": "off"
+          },
+          "security": {
+            "noDangerouslySetInnerHtml": "off"
+          },
+          "suspicious": {
+            "noArrayIndexKey": "off",
+            "noEqualsToNull": "off",
+            "noLeakedRender": "off",
+            "noShadow": "off"
+          }
+        }
+      }
+    }
   ]
 }

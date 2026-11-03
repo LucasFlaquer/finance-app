@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { buildFormData } from "./create-transaction-form-data";
 
 const create = vi.fn();
 const revalidatePath = vi.fn();
@@ -15,21 +16,6 @@ const { INITIAL_CREATE_TRANSACTION_STATE } = await import(
   "@/lib/transactions/create-transaction-state"
 );
 const { createTransaction } = await import("./create-transaction");
-
-function buildFormData(overrides: Record<string, string> = {}): FormData {
-  const fields = {
-    amount: "120.50",
-    categoryId: "category-1",
-    title: "Grocery shopping",
-    type: "OUTCOME",
-    ...overrides,
-  };
-  const formData = new FormData();
-  for (const [key, value] of Object.entries(fields)) {
-    formData.set(key, value);
-  }
-  return formData;
-}
 
 describe("createTransaction", () => {
   beforeEach(() => {
@@ -60,10 +46,10 @@ describe("createTransaction", () => {
     });
   });
 
-  it("revalidates the index page after a successful write", async () => {
+  it("revalidates the root layout after a successful write", async () => {
     await createTransaction(INITIAL_CREATE_TRANSACTION_STATE, buildFormData());
 
-    expect(revalidatePath).toHaveBeenCalledWith("/");
+    expect(revalidatePath).toHaveBeenCalledWith("/", "layout");
   });
 
   it("returns a validation error without touching the database", async () => {

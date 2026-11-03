@@ -24,7 +24,7 @@ export function TransactionRow({ transaction }: TransactionRowProps) {
         className={cn(
           "text-right font-semibold tabular-nums",
           isIncome
-            ? "text-emerald-600 dark:text-emerald-400"
+            ? "text-emerald-700 dark:text-emerald-400"
             : "text-destructive"
         )}
       >

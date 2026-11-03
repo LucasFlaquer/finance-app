@@ -33,11 +33,11 @@ Read `AGENTS.md`, `.claude/rules/code-standards.md`, `.claude/rules/react.md` an
 
 ## Subtasks
 
-- [ ] 4.1 `src/components/layout/app-nav.tsx`: two `next/link` links, `current: "dashboard" | "transactions"`.
-- [ ] 4.2 `src/components/layout/app-header.tsx`: props `categories`, `current` and `children`. Composes `AppNav`, the slot, `ThemeToggle` and `NewTransactionDialog`.
-- [ ] 4.3 Delete `src/components/transactions/transactions-header.tsx`. Update `src/app/page.tsx` to render `AppHeader` (`current="dashboard"`) plus its own `h1`.
-- [ ] 4.4 `src/server/transactions/create-transaction.ts`: `revalidatePath("/", "layout")`. Update `create-transaction.test.ts`.
-- [ ] 4.5 Unit tests (TU-24 to TU-26).
+- [x] 4.1 `src/components/layout/app-nav.tsx`: two `next/link` links, `current: "dashboard" | "transactions"`.
+- [x] 4.2 `src/components/layout/app-header.tsx`: props `categories`, `current` and `children`. Composes `AppNav`, the slot, `ThemeToggle` and `NewTransactionDialog`.
+- [x] 4.3 Delete `src/components/transactions/transactions-header.tsx`. Update `src/app/page.tsx` to render `AppHeader` (`current="dashboard"`) plus its own `h1`.
+- [x] 4.4 `src/server/transactions/create-transaction.ts`: `revalidatePath("/", "layout")`. Update `create-transaction.test.ts`.
+- [x] 4.5 Unit tests (TU-24 to TU-26).
 
 ## Implementation details
 
@@ -60,9 +60,9 @@ See `techspec.md`:
 
 ### Unit tests
 
-- [ ] TU-24 — revalidates both pages after creating a transaction
-- [ ] TU-25 — header renders navigation, theme toggle and new transaction
-- [ ] TU-26 — nav marks the current page
+- [x] TU-24 — revalidates both pages after creating a transaction
+- [x] TU-25 — header renders navigation, theme toggle and new transaction
+- [x] TU-26 — nav marks the current page
 
 ## Relevant files
 

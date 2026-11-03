@@ -33,11 +33,15 @@ Read `AGENTS.md`, `.claude/rules/code-standards.md`, `.claude/rules/react.md` an
 
 ## Subtasks
 
-- [ ] 7.1 `src/hooks/use-active-slice.ts`: `{ activeId, activate, clear }`.
-- [ ] 7.2 `src/components/dashboard/active-slice-readout.tsx`.
-- [ ] 7.3 `src/components/dashboard/category-slice.tsx` (main approach or fallback, per the 6.0 spike result).
-- [ ] 7.4 `src/components/dashboard/category-pie-chart.tsx`: `ChartContainer` + `PieChart` (`accessibilityLayer={false}`) + `Pie shape={CategorySlice}`, inside `<figure>` with an `sr-only` `<figcaption>`. Filters out zero rows.
-- [ ] 7.5 Unit tests (TU-34 to TU-37, TU-39).
+- [x] 7.1 `src/hooks/use-active-slice.ts`: `{ activeId, activate, clear }`.
+- [x] 7.2 `src/components/dashboard/active-slice-readout.tsx`.
+- [x] 7.3 `src/components/dashboard/category-slice.tsx` (main approach or fallback, per the 6.0 spike result).
+- [x] 7.4 `src/components/dashboard/category-pie-chart.tsx`: `ChartContainer` + `PieChart` (`accessibilityLayer={false}`) + `Pie shape={CategorySlice}`, inside `<figure>` with an `sr-only` `<figcaption>`. Filters out zero rows.
+- [x] 7.5 Unit tests (TU-34 to TU-37, TU-39).
+
+### Implementation note
+
+Recharts remounts the sector layer whenever the `Pie`'s parent re-renders, which dropped focus the moment a slice became active (confirmed in real Chromium). `Pie` therefore lives in a memoized `category-pie-canvas.tsx` fed stable `data` (`useMemo`) and stable `activate`/`clear` (`useCallback`). Handlers reach `CategorySlice` through the datum (`SliceDatum`), since `shape={CategorySlice}` is called as a plain function. This is the justified `useMemo`/`useCallback` use (stable references for a memoized child).
 
 ## Implementation details
 
@@ -58,11 +62,11 @@ See `techspec.md`:
 
 ### Unit tests
 
-- [ ] TU-34 — pie renders one slice per non-zero category with matching color
-- [ ] TU-35 — focusing a slice shows its details
-- [ ] TU-36 — hovering a slice shows its details and leaving clears them
-- [ ] TU-37 — chart exposes a text alternative
-- [ ] TU-39 — useActiveSlice activates and clears
+- [x] TU-34 — pie renders one slice per non-zero category with matching color
+- [x] TU-35 — focusing a slice shows its details
+- [x] TU-36 — hovering a slice shows its details and leaving clears them
+- [x] TU-37 — chart exposes a text alternative
+- [x] TU-39 — useActiveSlice activates and clears
 
 ## Relevant files
 
@@ -70,5 +74,6 @@ See `techspec.md`:
 - `src/components/dashboard/active-slice-readout.tsx` — new
 - `src/components/dashboard/category-slice.tsx` — new
 - `src/components/dashboard/category-pie-chart.tsx` (+ `.test.tsx`) — new
+- `src/components/dashboard/category-pie-canvas.tsx` — new (memoized `Pie`)
 - `src/components/ui/chart.tsx` — generated in 6.0
 - `src/lib/format-currency.ts`, `src/lib/format-percentage.ts` — reused
